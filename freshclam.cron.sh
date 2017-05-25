@@ -1,8 +1,7 @@
 #!/bin/sh
 
-while 1
+while /bin/true
 do
     sleep 3600
-
     freshclam
 done
