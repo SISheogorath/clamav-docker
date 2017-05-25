@@ -37,6 +37,15 @@ We automatically build our images weekly to include the current state of modern 
 Considering to update your docker setup regularly.
 
 
+# Additional information
+
+This image updates the signature database automatically every hour and on startup.
+
+No need to invoke it externally.
+
+Note there is no database build in.
+
+
 # License
 
 View [license information](https://github.com/vrtadmin/clamav-devel) for the software contained in this image.
