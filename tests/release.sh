@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -e
+
 echo "
          ######################################
          ###           Release test          ##
@@ -29,3 +32,6 @@ else
     echo >&2 "Installed version doesn't match \$CLAMAV_VERSION. Installed version is $CLAMD_VERSION"
     exit 1
 fi
+
+# Clean up
+docker stop "$DOCKERCONTAINER" && docker rm "$DOCKERCONTAINER"
