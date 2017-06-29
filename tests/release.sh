@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -e
+
 echo "
          ######################################
          ###           Release test          ##
@@ -23,9 +26,12 @@ DOCKERCONTAINER=$(docker run -d clamav:testing)
 
 CLAMD_VERSION=$(docker exec "${DOCKERCONTAINER}" clamd --version  |  cut -d" " -f2 | cut -d. -f1-3 | sed -e "s/\/.*//g")
 
-if version_eq "$CLAMAV_VERISON" "$CLAMD_VERSION"; then
-    echo "ClamAV version ($CLAMAV_VERISON) is correct! Test successful."
+if version_eq "$CLAMAV_VERSION" "$CLAMD_VERSION"; then
+    echo "ClamAV version ($CLAMAV_VERSION) is correct! Test successful."
 else
-    echo >&2 "Installed version doesn't match \$CLAMAV_VERISON. Installed version is $CLAMD_VERSION"
+    echo >&2 "Installed version doesn't match \$CLAMAV_VERSION. Installed version is $CLAMD_VERSION"
     exit 1
 fi
+
+# Clean up
+docker stop "$DOCKERCONTAINER" && docker rm "$DOCKERCONTAINER"
