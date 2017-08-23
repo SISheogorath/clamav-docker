@@ -1,6 +1,7 @@
 ClamAV
 ===
 
+[![MadIRC #Admins](https://img.shields.io/badge/MadIRC-%23Admins-green.svg)](https://webclient.madirc.net/?join=%23Admins)
 
 ClamAV is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 
