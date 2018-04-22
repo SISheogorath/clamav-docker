@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    CLAMAV_VERSION=0.99.2
+    CLAMAV_VERSION=0.99.4
 
 before_install:
   - sudo apt-get -qq update
